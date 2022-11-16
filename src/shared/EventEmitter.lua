@@ -1,9 +1,32 @@
+--[[
+	# EventEmitter
+
+	Implementation of Node.js's `EventEmitter` class
+
+	## How to use this
+
+	To start, you subscribe to a message, then later on, you emit that message with data of your choosing.
+
+	```lua
+	local evt = EventEmitter:new()
+
+	evt:on('say', function(...)
+		print(...)
+	end)
+
+	-- some point later on in your code...
+	local world = "world"
+	evt:emit('say', "Hello, " .. world .. "!")
+	```
+]]
+
+
 local EventEmitter = {
 	_events = {}
 }
 
-function EventEmitter:new()
-	local o = {}
+function EventEmitter:new(o)
+	o = o or {}
 	setmetatable(o, self)
 	self.__index = self
 	return o

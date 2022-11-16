@@ -1,63 +1,120 @@
 {
-  "name": "rojo-test",
-  "tree": {
-    "$className": "DataModel",
-
-    "Players": {
-      "$className": "Players",
-      "$properties": {
-        "CharacterAutoLoads": false
-      }
-    },
-
-    "ReplicatedStorage": {
-      "Common": {
-        "$path": "src/shared"
-      }
-    },
-
-    "ServerScriptService": {
-      "Server": {
-        "$path": "src/server"
-      }
-    },
-
-    "StarterPlayer": {
-      "StarterPlayerScripts": {
-        "Client": {
-          "$path": "src/client"
-        }
-      }
-    },
-
-    "Workspace": {
-      "$properties": {
-        "FilteringEnabled": true
-      },
-      "Models": {
-        "$path": "src/models"
-      }
-    },
-
-    "Lighting": {
-      "$properties": {
-        "Ambient": [
-          0,
-          0,
-          0
-        ],
-        "Brightness": 0,
-        "GlobalShadows": true,
-        "Outlines": false,
-        "Technology": "Voxel",
-        "ClockTime": 0
-      }
-    },
-
-    "SoundService": {
-      "$properties": {
-        "RespectFilteringEnabled": true
-      }
-    }
-  }
+	"name": "rojo-test",
+	"globIgnorePaths": [
+		"**/package.json",
+		"**/tsconfig.json"
+	],
+	"tree": {
+		"$className": "DataModel",
+		"Chat": {
+			"$className": "Chat",
+			"$ignoreUnknownInstances": true,
+			"ClientChatModules": {
+				"$className": "Folder",
+				"CommandModules": {
+					"$className": "Folder",
+					"$ignoreUnknownInstances": true,
+					"$path": "src/chat",
+					"InsertDefaultModules": {
+						"$className": "BoolValue",
+						"$properties": {
+							"Value": true
+						}
+					}
+				}
+			}
+		},
+		"Players": {
+			"$className": "Players",
+			"$properties": {
+			  	"CharacterAutoLoads": false
+			}
+		},
+		"ServerScriptService": {
+			"$className": "ServerScriptService",
+			"TS": {
+				"$path": "out/server"
+			},
+			"Server": {
+				"$path": "src/server"
+			}
+		},
+		"ReplicatedFirst": {
+			"$className": "ReplicatedFirst",
+			"load": {
+				"$path": "src/first"
+			},
+			"TS": {
+				"$path": "out/first"
+			}
+		},
+		"ReplicatedStorage": {
+			"$className": "ReplicatedStorage",
+			"rbxts_include": {
+				"$path": "include",
+				"node_modules": {
+					"$className": "Folder",
+					"@rbxts": {
+						"$path": "node_modules/@rbxts"
+					}
+				}
+			},
+			"TS": {
+				"$path": "out/shared"
+			},
+			"Common": {
+				"$path": "src/shared"
+			}
+		},
+		"StarterPlayer": {
+			"$className": "StarterPlayer",
+			"StarterPlayerScripts": {
+				"$className": "StarterPlayerScripts",
+				"TS": {
+					"$path": "out/client"
+				},
+				"Client": {
+					"$path": "src/client"
+				}
+			}
+		},
+		"Workspace": {
+			"$className": "Workspace",
+			"$properties": {
+				"FilteringEnabled": true
+			},
+			"Models": {
+				"$path": "src/models"
+			}
+		},
+		"Lighting": {
+			"$properties": {
+				"Ambient": [
+					0,
+					0,
+					0
+				],
+				"Brightness": 0,
+				"GlobalShadows": true,
+				"Outlines": false,
+				"Technology": "Voxel",
+				"ClockTime": 0
+			}
+		},
+		"HttpService": {
+			"$className": "HttpService",
+			"$properties": {
+				"HttpEnabled": true
+			}
+		},
+		"SoundService": {
+			"$className": "SoundService",
+			"$properties": {
+				"RespectFilteringEnabled": true
+			}
+		},
+		"ServerStorage": {
+			"$path": "src/storage"
+		}
+	}
 }
